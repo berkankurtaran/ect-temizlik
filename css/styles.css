@@ -114,9 +114,8 @@ a:hover { color: var(--color-primary); }
 }
 .nav-logo img {
   height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: auto;
+  object-fit: contain;
 }
 .nav-links {
   display: flex;
