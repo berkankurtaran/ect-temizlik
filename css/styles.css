@@ -113,9 +113,11 @@ a:hover { color: var(--color-primary); }
   gap: 0.5rem;
 }
 .nav-logo img {
-  height: 40px;
+  height: 60px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: contrast(1.1);
 }
 .nav-links {
   display: flex;
