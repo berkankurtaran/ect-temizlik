@@ -1,29 +1,29 @@
-from PIL import Image
+from PIL import Image, ImageDraw
 
 def make_transparent():
-    # Open the image
+    # Open the uploaded image
+    img_path = r"C:\Users\berka\.gemini\antigravity-ide\brain\a529fa63-4b00-4364-aa1e-6a28446e3df8\.user_uploaded\media_1789835439329.jpg"
     try:
-        img = Image.open('assets/images/logo.jpg')
+        img = Image.open(img_path).convert("RGBA")
     except Exception as e:
-        print("Could not open logo.jpg:", e)
+        print("Could not open image:", e)
         return
-        
-    img = img.convert("RGBA")
-    datas = img.getdata()
 
+    datas = img.getdata()
     newData = []
-    # If the background is light grey or white, we make it transparent.
-    # Adjusting threshold. Greys can be around 200+.
+    
+    # Remove black background (threshold < 20)
     for item in datas:
-        # Check if the pixel is light enough to be the background
-        if item[0] > 220 and item[1] > 220 and item[2] > 220:
-            newData.append((255, 255, 255, 0)) # Fully transparent
+        if item[0] < 25 and item[1] < 25 and item[2] < 25:
+            newData.append((0, 0, 0, 0)) # Transparent
         else:
-            newData.append(item) # Keep the original pixel
+            newData.append(item)
 
     img.putdata(newData)
+    
+    # Save as PNG
     img.save("assets/images/logo.png", "PNG")
-    print("Created logo.png successfully.")
+    print("Created transparent logo.png successfully.")
 
 if __name__ == '__main__':
     make_transparent()

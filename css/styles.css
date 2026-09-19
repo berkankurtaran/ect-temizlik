@@ -116,8 +116,6 @@ a:hover { color: var(--color-primary); }
   height: 60px;
   width: auto;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: contrast(1.1);
 }
 .nav-links {
   display: flex;
