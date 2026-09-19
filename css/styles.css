@@ -530,32 +530,53 @@ a:hover { color: var(--color-primary); }
   }
 }
 
-/* Cleaning Man Animation */
-.cleaning-man {
+/* Robot Vacuum Animation */
+.robot-vacuum-wrapper {
   position: fixed;
-  bottom: 5px;
+  bottom: 10px;
   left: -100px;
-  font-size: 2.5rem;
   z-index: 9998;
   pointer-events: none;
-  animation: walkAndMop 25s linear infinite;
+  animation: walkAndMop 20s linear infinite;
   display: block;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
 }
 
-.man-emoji {
+.robot-vacuum {
+  width: 55px;
+  height: 20px;
+  background: linear-gradient(to bottom, #444, #111);
+  border-radius: 27px 27px 8px 8px;
   position: relative;
-  z-index: 2;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
 
-.mop-emoji {
+.robot-vacuum::before {
+  content: '';
   position: absolute;
-  left: 24px;
+  top: -4px;
+  left: 22px;
+  width: 10px;
+  height: 10px;
+  background: #198754;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #198754;
+  animation: blinkLight 1s infinite alternate;
+}
+
+.robot-vacuum::after {
+  content: '🧹';
+  position: absolute;
+  font-size: 0.9rem;
+  right: -5px;
   bottom: -2px;
-  font-size: 2rem;
-  z-index: 3;
-  animation: mopSweep 0.5s ease-in-out infinite alternate;
-  transform-origin: bottom center;
+  animation: mopSweep 0.1s linear infinite alternate;
+  transform-origin: top center;
+  z-index: -1;
+}
+
+@keyframes blinkLight {
+  from { opacity: 0.5; box-shadow: 0 0 2px #198754; }
+  to { opacity: 1; box-shadow: 0 0 8px #198754; }
 }
 
 @keyframes walkAndMop {
@@ -567,6 +588,6 @@ a:hover { color: var(--color-primary); }
 }
 
 @keyframes mopSweep {
-  from { transform: rotate(-15deg); }
-  to { transform: rotate(15deg); }
+  from { transform: rotate(-20deg); }
+  to { transform: rotate(20deg); }
 }

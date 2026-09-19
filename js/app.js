@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Cleaning Man Animation Injection
-    const cleaningMan = document.createElement('div');
-    cleaningMan.className = 'cleaning-man';
-    cleaningMan.innerHTML = '<span class="man-emoji">🚶‍♂️</span><span class="mop-emoji">🧹</span>';
-    document.body.appendChild(cleaningMan);
+    // Robot Vacuum Animation Injection
+    const robotVacuum = document.createElement('div');
+    robotVacuum.className = 'robot-vacuum-wrapper';
+    robotVacuum.innerHTML = '<div class="robot-vacuum"></div>';
+    document.body.appendChild(robotVacuum);
 });
