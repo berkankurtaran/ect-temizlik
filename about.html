@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda | ECT Temizlik</title>
+    <meta name="description" content="ECT Temizlik hakkında detaylı bilgi, vizyonumuz ve misyonumuz. Neden bizi seçmelisiniz?">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .stat-card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: box-shadow var(--transition-fast);
+        }
+        .stat-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .stat-card h3 {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .stat-card p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/images/logo.png" alt="ECT Temizlik Logo">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html" class="active">Hakkımızda</a></li>
+                <li><a href="services.html">Hizmetlerimiz</a></li>
+                <li><a href="contact.html">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Hakkımızda</h1>
+            <p>Biz kimiz ve neden buradayız?</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="assets/images/about.jpg" alt="Ekibimiz" onerror="this.src='https://images.unsplash.com/photo-1584820927498-cafe5c152a65?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="about-text">
+                    <h2>ECT Temizlik Olarak Hedefimiz</h2>
+                    <p>Sektördeki uzun yıllara dayanan tecrübemizle, müşterilerimize sadece bir temizlik hizmeti değil, aynı zamanda sağlıklı ve ferah bir yaşam alanı sunmayı hedefliyoruz. Gelişen teknolojileri yakından takip ederek, en etkili ve doğaya zarar vermeyen temizlik yöntemlerini kullanıyoruz.</p>
+                    <p>Ev temizliğinden ofis temizliğine, merdiven ve inşaat sonrası temizlikten site yönetimine kadar geniş bir yelpazede hizmet veriyoruz. Önceliğimiz her zaman müşteri memnuniyeti ve güven oluşturmaktır.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="services.html" class="btn btn-primary">Hizmetlerimize Göz Atın</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>3+</h3>
+                    <p>Yıllık Tecrübe</p>
+                </div>
+                <div class="stat-card">
+                    <h3>150+</h3>
+                    <p>Mutlu Müşteri</p>
+                </div>
+                <div class="stat-card">
+                    <h3>30+</h3>
+                    <p>Uzman Personel</p>
+                </div>
+                <div class="stat-card">
+                    <h3>%100</h3>
+                    <p>Memnuniyet Garantisi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>ECT Temizlik</h3>
+                    <p>Temizlikte profesyonel çözüm ortağınız. Yaşam alanlarınızı güzelleştiriyoruz.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Menü</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="services.html">Hizmetlerimiz</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>İletişim</h4>
+                    <p>Adres: Karaman Mah. Sahra Cad. Mavi İş Merkezi, Adapazarı / Sakarya</p>
+                    <p>Email: evimizcoktemiz@gmail.com</p>
+                    <p>Telefon: +90 545 884 54 41</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 ECT Temizlik. Tüm Hakları Saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

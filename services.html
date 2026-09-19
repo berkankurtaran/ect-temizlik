@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hizmetlerimiz | ECT Temizlik</title>
+    <meta name="description" content="ECT Temizlik hizmet kataloğu. Ev, ofis, merdiven, inşaat temizliği ve site yönetimi hizmetleri.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .service-card {
+            display: flex;
+            background: var(--color-surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .service-img {
+            flex: 0 0 40%;
+        }
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .service-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .service-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .service-card {
+                flex-direction: column;
+            }
+            .service-img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/images/logo.png" alt="ECT Temizlik Logo">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+                <li><a href="services.html" class="active">Hizmetlerimiz</a></li>
+                <li><a href="contact.html">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Hizmet Kataloğumuz</h1>
+            <p>Her alanda profesyonel ve güvenilir temizlik çözümleri</p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="assets/images/management.jpg" alt="Site Yönetimi" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="service-content">
+                    <h3>Site Yönetimi ve Temizliği</h3>
+                    <p>Sitelerinizin genel temizliği, bahçe bakımı ve ortak alan yönetiminde profesyonel destek sunuyoruz. Çöp alımı, otopark temizliği ve peyzaj düzenlemesi gibi hizmetlerle yaşam alanınızın değerini artırıyoruz.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="assets/images/stairs.jpg" alt="Merdiven Temizliği" onerror="this.src='https://images.unsplash.com/photo-1574950669225-b40b12bc1e50?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="service-content">
+                    <h3>Merdiven Temizliği</h3>
+                    <p>Apartman ve sitelerin ortak kullanım alanı olan merdivenlerin temizliği sağlığınız için önemlidir. Korkuluklar, asansör içleri, kapılar ve zeminler düzenli olarak özel kimyasallarla temizlenir.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="assets/images/house.jpg" alt="Ev Temizliği" onerror="this.src='https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="service-content">
+                    <h3>Ev Temizliği</h3>
+                    <p>Günlük yaşantınızın yoğunluğunda evinizin temizliğiyle yorulmayın. Deneyimli ekibimizle evinizde detaylı ve derinlemesine temizlik hizmeti sunuyoruz. Salon, mutfak, banyo ve yatak odalarınızda özenli bir hijyen sağlıyoruz.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="assets/images/office.jpg" alt="Ofis Temizliği" onerror="this.src='https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="service-content">
+                    <h3>Ofis Temizliği</h3>
+                    <p>Çalışanlarınızın sağlığı ve motivasyonu için temiz bir çalışma ortamı şarttır. Periyodik ofis temizliği hizmetimizle masalar, zeminler ve ortak alanlarda maksimum hijyen garantisi veriyoruz.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="assets/images/construction.jpg" alt="İnşaat Sonrası Temizlik" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop'">
+                </div>
+                <div class="service-content">
+                    <h3>İnşaat Sonrası Temizlik</h3>
+                    <p>Yeni bir eve taşınmadan veya tadilat sonrası oluşan zorlu inşaat kalıntıları, harç, boya ve tozları profesyonel ekipmanlarımızla sıfır hata ile temizliyoruz. Mekanınızı anında yaşanabilir hale getiriyoruz.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (Same as Index) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>ECT Temizlik</h3>
+                    <p>Temizlikte profesyonel çözüm ortağınız. Yaşam alanlarınızı güzelleştiriyoruz.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Menü</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="services.html">Hizmetlerimiz</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>İletişim</h4>
+                    <p>Adres: Karaman Mah. Sahra Cad. Mavi İş Merkezi, Adapazarı / Sakarya</p>
+                    <p>Email: evimizcoktemiz@gmail.com</p>
+                    <p>Telefon: +90 545 884 54 41</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 ECT Temizlik. Tüm Hakları Saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
