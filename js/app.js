@@ -35,4 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
     }
+
+    // Cleaning Man Animation Injection
+    const cleaningMan = document.createElement('div');
+    cleaningMan.className = 'cleaning-man';
+    cleaningMan.innerHTML = '<span class="man-emoji">🚶‍♂️</span><span class="mop-emoji">🧹</span>';
+    document.body.appendChild(cleaningMan);
 });
