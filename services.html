@@ -52,12 +52,30 @@
         @media (max-width: 768px) {
             .service-card {
                 flex-direction: column;
+                margin-bottom: 1.25rem;
             }
             .service-img {
-                height: 250px;
+                flex: none;
+                height: 200px;
+            }
+            .service-content {
+                padding: 1.5rem;
+            }
+            .service-content h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-img {
+                height: 160px;
+            }
+            .service-content {
+                padding: 1.25rem;
             }
         }
     </style>
+
 </head>
 <body>
 
