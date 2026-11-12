@@ -53,6 +53,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Hizmetler 3-Tab Switching (Bireysel / Kurumsal / Özel)
+    const tabBtns = document.querySelectorAll('.pro-tab-btn');
+    const tabPanels = document.querySelectorAll('.pro-tab-panel');
+
+    if (tabBtns.length > 0 && tabPanels.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                tabPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                const activePanel = document.getElementById(`tab-${targetTab}`);
+                if (activePanel) {
+                    activePanel.classList.add('active');
+                }
+            });
+        });
+    }
+
     // 3D Robot Vacuum Animation Injection
     const robotVacuum = document.createElement('div');
     robotVacuum.className = 'robot-vacuum-wrapper';
