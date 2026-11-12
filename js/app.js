@@ -53,9 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Robot Vacuum Animation Injection
+    // 3D Robot Vacuum Animation Injection
     const robotVacuum = document.createElement('div');
     robotVacuum.className = 'robot-vacuum-wrapper';
-    robotVacuum.innerHTML = '<div class="robot-vacuum"></div>';
+    robotVacuum.innerHTML = `
+        <div class="robot-vacuum-3d">
+            <div class="rv-clean-trail">
+                <span class="rv-sparkle s1">✦</span>
+                <span class="rv-sparkle s2">✧</span>
+                <span class="rv-sparkle s3">✦</span>
+            </div>
+            <div class="rv-floor-shadow"></div>
+            <div class="rv-side-brush left"></div>
+            <div class="rv-side-brush right"></div>
+            <div class="rv-chassis">
+                <div class="rv-bumper"></div>
+                <div class="rv-top-deck">
+                    <div class="rv-led-ring"></div>
+                    <div class="rv-lidar">
+                        <div class="rv-lidar-cap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     document.body.appendChild(robotVacuum);
 });

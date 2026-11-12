@@ -110,12 +110,20 @@ a:hover { color: var(--color-primary); }
   color: var(--color-primary);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 .nav-logo img {
-  height: 60px;
-  width: auto;
+  height: 64px;
+  width: 64px;
+   display: block;
   object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(15, 81, 50, 0.25));
+  transition: transform var(--transition-normal), filter var(--transition-normal);
+}
+.nav-logo:hover img {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(15, 81, 50, 0.35));
 }
 .nav-links {
   display: flex;
@@ -571,7 +579,8 @@ a:hover { color: var(--color-primary); }
     touch-action: manipulation;
   }
   .nav-logo img {
-    height: 48px;
+    height: 50px;
+    width: 50px;
   }
 
   /* Body scroll lock menü açıkken */
@@ -723,64 +732,214 @@ a:hover { color: var(--color-primary); }
   }
 }
 
-/* Robot Vacuum Animation */
+/* 3D Robot Vacuum Animation */
 .robot-vacuum-wrapper {
   position: fixed;
-  bottom: 10px;
-  left: -100px;
+  bottom: 14px;
+  left: -120px;
   z-index: 9998;
   pointer-events: none;
-  animation: walkAndMop 20s linear infinite;
+  animation: walkAndMop 22s linear infinite;
   display: block;
 }
 
-.robot-vacuum {
-  width: 55px;
-  height: 20px;
-  background: linear-gradient(to bottom, #444, #111);
-  border-radius: 27px 27px 8px 8px;
+.robot-vacuum-3d {
   position: relative;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  width: 84px;
+  height: 46px;
+  transform-style: preserve-3d;
+  animation: rvHoverBob 0.45s ease-in-out infinite alternate;
 }
 
-.robot-vacuum::before {
-  content: '';
+/* Realistic floor shadow with ambient green glow */
+.rv-floor-shadow {
   position: absolute;
-  top: -4px;
-  left: 22px;
-  width: 10px;
-  height: 10px;
-  background: #198754;
+  bottom: 0px;
+  left: 6px;
+  width: 72px;
+  height: 22px;
   border-radius: 50%;
-  box-shadow: 0 0 8px #198754;
-  animation: blinkLight 1s infinite alternate;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, rgba(15, 81, 50, 0.25) 60%, transparent 80%);
+  filter: blur(2px);
+  z-index: 1;
 }
 
-.robot-vacuum::after {
-  content: '🧹';
+/* Trailing wet/clean shine & sparkles behind vacuum */
+.rv-clean-trail {
   position: absolute;
-  font-size: 0.9rem;
-  right: -5px;
-  bottom: -2px;
-  animation: mopSweep 0.1s linear infinite alternate;
-  transform-origin: top center;
-  z-index: -1;
+  bottom: 5px;
+  left: -58px;
+  width: 68px;
+  height: 16px;
+  background: linear-gradient(to right, transparent, rgba(32, 201, 151, 0.22), rgba(25, 135, 84, 0.4));
+  border-radius: 10px;
+  filter: blur(1px);
+  z-index: 0;
+}
+
+.rv-sparkle {
+  position: absolute;
+  color: #20c997;
+  font-size: 0.75rem;
+  text-shadow: 0 0 6px rgba(32, 201, 151, 0.9);
+  animation: sparklePop 1.2s ease-in-out infinite;
+}
+.rv-sparkle.s1 { left: 8px; top: -6px; animation-delay: 0s; }
+.rv-sparkle.s2 { left: 26px; top: 2px; animation-delay: 0.4s; font-size: 0.65rem; color: #ffffff; }
+.rv-sparkle.s3 { left: 42px; top: -8px; animation-delay: 0.8s; }
+
+/* Spinning 3D Dual Side Brushes */
+.rv-side-brush {
+  position: absolute;
+  width: 24px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 2;
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg 40deg,
+      #20c997 40deg 60deg,
+      transparent 60deg 160deg,
+      #20c997 160deg 180deg,
+      transparent 180deg 280deg,
+      #20c997 280deg 300deg,
+      transparent 300deg 360deg
+    );
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+  animation: brushSpin 0.25s linear infinite;
+}
+.rv-side-brush.right {
+  right: -4px;
+  bottom: 4px;
+}
+.rv-side-brush.left {
+  right: 6px;
+  bottom: 1px;
+  opacity: 0.85;
+  animation-direction: reverse;
+}
+
+/* 3D Cylindrical Chassis Body */
+.rv-chassis {
+  position: absolute;
+  bottom: 4px;
+  left: 6px;
+  width: 72px;
+  height: 32px;
+  border-radius: 50%;
+  /* 3D metallic dark body with extruded vertical wall via layered shadows */
+  background: linear-gradient(135deg, #4b5563 0%, #1f2937 45%, #0f172a 100%);
+  box-shadow:
+    0 1px 0 #374151,
+    0 2px 0 #2d3748,
+    0 3px 0 #1e293b,
+    0 4px 0 #172033,
+    0 5px 0 #111827,
+    0 6px 0 #0b1120,
+    0 7px 0 #198754,
+    0 8px 0 #0f5132,
+    0 10px 8px rgba(0, 0, 0, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35);
+  z-index: 3;
+}
+
+/* Front Sensor Bumper Strip */
+.rv-bumper {
+  position: absolute;
+  right: -1px;
+  top: 5px;
+  width: 26px;
+  height: 24px;
+  border-radius: 0 50% 50% 0;
+  border-right: 3px solid #20c997;
+  box-shadow: 2px 0 6px rgba(32, 201, 151, 0.6);
+  opacity: 0.9;
+}
+
+/* Glossy 3D Top Glass Deck */
+.rv-top-deck {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 64px;
+  height: 26px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 30% 25%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 65%),
+    linear-gradient(145deg, #334155 0%, #1e293b 55%, #0f172a 100%);
+  border: 1.5px solid rgba(32, 201, 151, 0.55);
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Glowing Emerald Status Ring */
+.rv-led-ring {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 46px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid #20c997;
+  box-shadow: 0 0 8px rgba(32, 201, 151, 0.75), inset 0 0 6px rgba(32, 201, 151, 0.4);
+  animation: blinkLight 1.2s ease-in-out infinite alternate;
+}
+
+/* 3D Raised LiDAR Laser Turret Dome */
+.rv-lidar {
+  position: absolute;
+  top: 3px;
+  left: 20px;
+  width: 22px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #198754, #0a3622);
+  box-shadow:
+    0 1px 0 #146c43,
+    0 2px 0 #0f5132,
+    0 3px 0 #0a3622,
+    0 4px 5px rgba(0, 0, 0, 0.65);
+}
+
+.rv-lidar-cap {
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  width: 20px;
+  height: 10px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 35% 30%, #6ee7b7 0%, #198754 50%, #0f5132 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes rvHoverBob {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-1.5px); }
+}
+
+@keyframes brushSpin {
+  from { transform: scaleY(0.5) rotate(0deg); }
+  to   { transform: scaleY(0.5) rotate(360deg); }
+}
+
+@keyframes sparklePop {
+  0%, 100% { opacity: 0.15; transform: scale(0.7) translateY(2px); }
+  50%      { opacity: 1; transform: scale(1.15) translateY(-3px); }
 }
 
 @keyframes blinkLight {
-  from { opacity: 0.5; box-shadow: 0 0 2px #198754; }
-  to { opacity: 1; box-shadow: 0 0 8px #198754; }
+  from { opacity: 0.65; box-shadow: 0 0 4px rgba(32, 201, 151, 0.5); }
+  to   { opacity: 1; box-shadow: 0 0 12px rgba(32, 201, 151, 0.95), inset 0 0 6px rgba(32, 201, 151, 0.6); }
 }
 
 @keyframes walkAndMop {
-  0% { transform: translateX(-100px) scaleX(1); }
-  49% { transform: translateX(calc(100vw + 100px)) scaleX(1); }
-  50% { transform: translateX(calc(100vw + 100px)) scaleX(-1); }
-  99% { transform: translateX(-100px) scaleX(-1); }
-  100% { transform: translateX(-100px) scaleX(1); }
-}
-
-@keyframes mopSweep {
-  from { transform: rotate(-20deg); }
-  to { transform: rotate(20deg); }
+  0%   { transform: translateX(-120px) scaleX(1); }
+  49%  { transform: translateX(calc(100vw + 120px)) scaleX(1); }
+  50%  { transform: translateX(calc(100vw + 120px)) scaleX(-1); }
+  99%  { transform: translateX(-120px) scaleX(-1); }
+  100% { transform: translateX(-120px) scaleX(1); }
 }
